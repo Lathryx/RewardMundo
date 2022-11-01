@@ -1,3 +1,5 @@
+import { useState } from 'react'; 
+
 import '../styles/globals.css'; 
 import Navbar from '../components/Navbar'; 
 import Footer from '../components/Footer'; 
@@ -26,10 +28,11 @@ const firestore = firebase.firestore();
 
 function MyApp({ Component, pageProps }) { 
   const [user] = useAuthState(auth); 
+  const [userData, setUserData] = useState({}); 
 
   return (
     <div className="scroll-smooth" data-theme="mytheme">
-      <Navbar user={user} auth={auth} firestore={firestore} /> 
+      <Navbar user={user} userData={userData} auth={auth} firestore={firestore} setUserData={setUserData} /> 
       <Component user={user} {...pageProps} /> 
       <Footer /> 
     </div>

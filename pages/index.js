@@ -11,14 +11,14 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 export default function Home({ user }) {
   return (
-    <div className="min-h-[93vh]">
+    <div className="min-h-ddfd[93vh]">
       <Head> 
         <title>RewardMundo</title>
         <meta name="description" content="RewardMundo" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="pt-20 lg:pt-0 h-screen flex flex-col items-center lg:items-start justify-start lg:justify-center">
+      <div className="landing pt-20 lg:pt-36 h-[150vh] items-center lg:items-start justify-start lg:justify-center">
         <div className="m-8 lg:m-14">
           <p className="mb-4 lg:mb-2 text-4xl lg:text-7xl font-black">RewardMundo</p> 
           <p className="text-2xl lg:text-4xl font-semibold">Protect our <span className="text-sucdcess font-extrdabold">planet</span>,</p>

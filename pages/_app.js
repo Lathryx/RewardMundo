@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps }) {
   const [user] = useAuthState(auth); 
 
   return (
-    <div data-theme="mytheme">
+    <div className="scroll-smooth" data-theme="mytheme">
       <Navbar user={user} auth={auth} /> 
       <Component user={user} {...pageProps} /> 
       <Footer /> 

@@ -23,7 +23,7 @@ export default function Navbar({ user, auth }) {
                     <li><Link href="/about">About</Link></li> 
                     <li><Link href="/leaderboard">Leaderboard</Link></li> 
                 </ul>
-                <p className="text-3xl font-bold lg:hidden">RewardMundo</p>
+                <Link className="cursor-pointer text-3xl font-bold lg:hidden" href="/">RewardMundo</Link>
             </div>
             <div className="navbar-end">
                 { user ? <Profile user={user} auth={auth} /> : <SignIn auth={auth} /> } 
@@ -39,7 +39,7 @@ const SignIn = ({ auth }) => {
     }; 
 
     return (
-        <button className="mx-5 btn btn-primary" onClick={signInWithGoogle}>Log in</button>
+        <button className="lg:mx-5 btn btn-sm lg:btn-md btn-primary" onClick={signInWithGoogle}>Log in</button>
     ); 
 }; 
 

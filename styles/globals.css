@@ -2,6 +2,12 @@
 @tailwind components; 
 @tailwind utilities; 
 
+.landing {
+  background: url('../public/landing-bg.svg') no-repeat; 
+  background-position: 30% 10%; 
+  background-size: cover; 
+}
+
 /* html,
 body {
   padding: 0;

@@ -7,7 +7,7 @@ module.exports = {
   daisyui: {
     themes: [
       {
-        mytheme: {
+        mytheme: { // https://coolors.co/9994db-6f58c9-03b5aa-110b11-ffffff-4b6395-3da35d-f7b32b-fe4a49-412234 
           "primary": "#9994DB", 
           "secondary": "#6F58C9", 
           "accent": "#03B5AA", 

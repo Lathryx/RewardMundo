@@ -1,8 +1,11 @@
+import { useState } from 'react'; 
+
 import Link from 'next/link'; 
 
 import firebase from 'firebase/compat/app'; 
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
-export default function Navbar({ user, auth }) {
+export default function Navbar({ user, auth, firestore }) {
     return (
         <div className="navbar bg-base-100 top-0 sticky b border-b-2 border-b-gray-200 z-10"> 
             <div className="navbar-start">
@@ -26,25 +29,46 @@ export default function Navbar({ user, auth }) {
                 <Link className="cursor-pointer text-3xl font-bold lg:hidden" href="/">RewardMundo</Link>
             </div>
             <div className="navbar-end">
-                { user ? <Profile user={user} auth={auth} /> : <SignIn auth={auth} /> } 
+                { user ? <Profile user={user} auth={auth} firestore={firestore} /> : <SignIn user={user}auth={auth} /> } 
             </div>
         </div>
     ); 
 } 
 
 const SignIn = ({ auth }) => {
+    const [emailVal, setEmailVal] = useState(''); 
+    const [passwordVal, setPasswordVal] = useState(''); 
+
     const signInWithGoogle = () => {
         const provider = new firebase.auth.GoogleAuthProvider(); 
         auth.signInWithPopup(provider); 
     }; 
 
+    const signInWithEmailAndPassword = () => {
+        if (!emailVal || !passwordVal) return; 
+        
+        setEmailVal(''); 
+        setPasswordVal(''); 
+    }; 
+
     return (
-        <button className="lg:mx-5 btn btn-sm lg:btn-md btn-primary" onClick={signInWithGoogle}>Log in</button>
+        <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="lg:mx-5 btn btn-sm lg:btn-md btn-primary" >Sign in</label>
+            <ul tabIndex={0} className="dropdown-content menu p-3 shadow bg-base-100 rounded-box w-64">
+                <input className="mb-3 input bg-gray-100 hover:bg-gray-200 focus:bg-gray-200 w-full max-w-xs" type="text" placeholder="Email" value={emailVal} onChange={e => setEmailVal(e.target.value)} />
+                <input className="mb-4 input bg-gray-100 hover:bg-gray-200 focus:bg-gray-200 w-full max-w-xs" type="password" placeholder="Password" value={passwordVal} onChange={e => setPasswordVal(e.target.value)} />
+                <button className="btn btn-primary w-full max-w-xs normal-case" onClick={signInWithEmailAndPassword}>Sign in</button> 
+                <div className="divider">or</div>
+                <button className="btn btn-ghost normal-case" onClick={signInWithGoogle}>Sign in with Google</button>
+            </ul>
+        </div>
     ); 
 }; 
 
-const Profile = ({ user, auth }) => {
-    console.log(user); 
+const Profile = ({ user, auth, firestore }) => {
+    if (auth.currentUser) {
+        const userData = firestore.doc(user.uid); 
+    }
 
     return auth.currentUser && (
         <div className="mx-5 dropdown dropdown-end">

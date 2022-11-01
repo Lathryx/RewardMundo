@@ -29,7 +29,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <div className="scroll-smooth" data-theme="mytheme">
-      <Navbar user={user} auth={auth} /> 
+      <Navbar user={user} auth={auth} firestore={firestore} /> 
       <Component user={user} {...pageProps} /> 
       <Footer /> 
     </div>

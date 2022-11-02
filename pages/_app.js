@@ -1,4 +1,4 @@
-import { useState } from 'react'; 
+import { useState, useEffect } from 'react'; 
 
 import '../styles/globals.css'; 
 import Navbar from '../components/Navbar'; 
@@ -29,6 +29,14 @@ const firestore = firebase.firestore();
 function MyApp({ Component, pageProps }) { 
   const [user] = useAuthState(auth); 
   const [userData, setUserData] = useState({}); 
+
+  useEffect(() => {
+    if (user) {
+      firestore.collection('users').doc(user.uid).onSnapshot((doc) => {
+        setUserData(doc.data()); 
+      }); 
+    }
+  }); 
 
   return (
     <div className="scroll-smooth" data-theme="mytheme">

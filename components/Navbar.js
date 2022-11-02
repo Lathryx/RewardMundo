@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 import Link from 'next/link'; 
 import SignUpModal from './SignUpModal'; 
+import ProfileModal from './ProfileModal'; 
 
 import firebase from 'firebase/compat/app'; 
 import { signInWithEmailAndPassword } from 'firebase/auth';
@@ -87,27 +88,31 @@ const Profile = ({ user, auth, firestore, userData }) => {
         <div className="mx-5 dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                    <img src={userData.imgURL} alt="avatar" /> 
+                    <img src={userData?.imgURL} alt="avatar" /> 
                 </div>
             </label>
             <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content gap-1 bg-base-100 rounded-box w-52">
                 <li>
-                    <div className="flex items-center">
-                        <div className="avatar">
-                            <div className="w-10 rounded-full">
-                                <img src={userData.imgURL} alt="avatar" /> 
+                    <label htmlFor="profile-modal">
+                        <div className="flex items-center gap-2">
+                            <div className="avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src={userData?.imgURL} alt="avatar" /> 
+                                </div> 
                             </div> 
-                        </div> 
-                        <div>
-                            <p className="text-lg font-bold">{userData.username}</p>
-                            <p className="text-sm font-bold text-secondary">{userData.points}<span className="text-gray-500">pts</span></p>
+                            <div>
+                                <p className="text-lg font-bold">{userData?.username}</p>
+                                <p className="text-sm font-bold text-secondary">{userData?.points}<span className="text-gray-500">pts</span></p>
+                            </div>
                         </div>
-                    </div>
+                    </label>
                 </li>
-                <li><a className="text-base-100 bg-primary hover:bg-secondary hover:drop-shadow-lg">Redeem</a></li>
+                <li><Link className="text-base-100 bg-primary hover:bg-secondary hover:drop-shadow-lg" href="/redeem">Redeem</Link></li>
                 <li><a>Settings</a></li>
                 <li onClick={() => auth.signOut()}><a className="bg-gray-200 hover:bg-gray-300">Sign out</a></li>
             </ul>
+
+            <ProfileModal user={user} firestore={firestore} userData={userData} /> 
         </div>
     ); 
 }; 

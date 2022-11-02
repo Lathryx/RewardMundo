@@ -24,7 +24,19 @@ export default function Home({ user }) {
           <p className="text-2xl lg:text-4xl font-semibold">Protect our <span className="text-sucdcess font-extrdabold">planet</span>,</p>
           <p className="text-2xl lg:text-4xl text-success font-extrabold">earn <span className="text-sduccess font-extrdabold">rewards</span>.</p>
         </div>
+
+        <div className="m-8 lg:m-14">
+          <p className="mb-4 lg:mb-2 text-2xl lg:text-4xl font-semibold">Join the <span className="text-success font-extrabold">movement</span>.</p> 
+        </div>
+
+        <div className="mt-80 ml-auto m-10 p-5 lg:w-1/2 rounded-xl">
+          <p className="mb-8 text-4xl font-bold">Purpose</p> 
+            <div className="p-5 bg-gray-100 rounded-lg">
+              <p>Earn exclusive deals from your favorite brands, redeem points for gift cards, and more! </p> 
+            </div>
+        </div>
       </div> 
+
     </div> 
   )
 }

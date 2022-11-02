@@ -51,8 +51,8 @@ const ViewProfile = ({ userData, handleSetEditProfile }) => {
 
 const EditProfile = ({ user, firestore, userData, handleSetEditProfile }) => {
     const [imgURL, setImgURL] = useState(null); 
-    const [username, setUsername] = useState(userData.username); 
-    const [email, setEmail] = useState(userData.email); 
+    const [username, setUsername] = useState(userData?.username); 
+    const [email, setEmail] = useState(userData?.email); 
 
     
     const handleFileChange = e => {

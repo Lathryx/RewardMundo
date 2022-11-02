@@ -48,6 +48,7 @@ const SignIn = ({ auth, firestore, setUserData }) => {
         await auth.signInWithPopup(provider); 
 
         const userData = await firestore.collection('users').doc(auth.currentUser.uid).get(); 
+        console.log(userData); 
         setUserData(userData.data()); 
     }; 
 

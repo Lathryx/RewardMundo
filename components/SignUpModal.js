@@ -11,6 +11,16 @@ export default function SignUpModal({ auth, firestore, setUserData }) {
         const provider = new firebase.auth.GoogleAuthProvider(); 
         await auth.signInWithPopup(provider); 
 
+        const newUserData = {
+            createdAt: firebase.firestore.FieldValue.serverTimestamp(), 
+            imgURL: auth.currentUser.photoURL, 
+            email: auth.currentUser.email, 
+            usernmae: auth.currentUser.displayName, 
+            points: 500, 
+            totalPoints: 500 
+        }; 
+
+        await firestore.collection('users').doc(auth.currentUser.uid).set(newUserData); 
         const userData = await firestore.collection('users').doc(auth.currentUser.uid).get(); 
         setUserData(userData.data()); 
     }

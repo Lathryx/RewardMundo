@@ -4,9 +4,9 @@
 
 .landing {
   background: url('../public/landing-bg.svg') no-repeat; 
-  background-position: 30% 10%; 
-  background-size: cover; 
-}
+  background-position: 90% 10%; /* old: 30% 10%; */ 
+  background-size: 150% auto; /* old: cover; */ 
+} 
 
 /* html,
 body {

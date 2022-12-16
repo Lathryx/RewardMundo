@@ -1,7 +1,7 @@
 import { useState } from 'react'; 
 
 export default function ProfileModal({ user, firestore, userData, setUserData }) {
-    const [editProfile, setEditProfile] = useState(true); 
+    const [editProfile, setEditProfile] = useState(false); 
 
     const handleSetEditProfile = (e, val) => {
         e.preventDefault(); 
@@ -14,8 +14,8 @@ export default function ProfileModal({ user, firestore, userData, setUserData })
             <input className="modal-toggle" type="checkbox" id="profile-modal" /> 
             <label className="modal cursor-pointer" htmlFor="profile-modal">
                 <label className="modal-box relative" htmlFor="">
-                    <label className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2  border-none" htmlFor="profile-modal">&times;</label> 
-                    <p className="mb-5 text-4xl font-bold">Profile</p> 
+                    <label className="btn btn-sm btn-square btn-ghost absolute right-2 top-2  border-none" htmlFor="profile-modal">&times;</label> 
+                    <p className="mb-5 text-4xl font-bold">Perfil</p> 
                     {/* <p className="pt-3 pb-3 text-sm">Create a new account for RewardMundo using the form below.</p> */}
                     {editProfile ? <EditProfile user={user} userData={userData} firestore={firestore}  setUserData={setUserData} handleSetEditProfile={handleSetEditProfile} /> : <ViewProfile userData={userData} handleSetEditProfile={handleSetEditProfile} />} 
                 </label>
@@ -42,8 +42,8 @@ const ViewProfile = ({ userData, handleSetEditProfile }) => {
                 </div>
             </div>
             <div className="p-5 flex items-center justify-end gap-2"> 
-                <button className="btn btn-primary hover:text-base-100" onClick={e => handleSetEditProfile(e, true)}>Edit</button> 
-                <label className="btn text-neutral bg-gray-200 hover:bg-gray-300 border-none" htmlFor="profile-modal">Close</label> 
+                <button className="btn btn-primary hover:text-base-100" onClick={e => handleSetEditProfile(e, true)}>Editar</button> 
+                <label className="btn text-neutral bg-gray-200 hover:bg-gray-300 border-none" htmlFor="profile-modal">Cerrar</label> 
             </div>
         </div>
     ); 
@@ -85,7 +85,7 @@ const EditProfile = ({ user, firestore, userData, handleSetEditProfile }) => {
                     </div>
                 </div>
                 <input className="mx-auto file-input file-input-sm file-input-ghost" type="file" accept="image/*" onChange={handleFileChange} /> 
-                <label className="label"><span className="label-text font-semibold">Username</span></label>
+                <label className="label"><span className="label-text font-semibold">Usuario</span></label>
                 <input className="py-4 input input-primary input-sm w-full madx-w-xs border-2" type="text" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} /> 
                 <label className="label"><span className="label-text font-semibold">Email</span></label>
                 {/* <p>Email</p> */}

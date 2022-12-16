@@ -29,6 +29,7 @@ const firestore = firebase.firestore();
 function MyApp({ Component, pageProps }) { 
   const [user] = useAuthState(auth); 
   const [userData, setUserData] = useState({}); 
+  const [appLang, setAppLang] = useState("en"); 
 
   useEffect(() => {
     if (user) {
@@ -40,9 +41,9 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <div className="scroll-smooth" data-theme="mytheme">
-      <Navbar user={user} userData={userData} auth={auth} firestore={firestore} setUserData={setUserData} /> 
-      <Component user={user} auth={auth} {...pageProps} /> 
-      <Footer /> 
+      <Navbar appLang={appLang} user={user} userData={userData} auth={auth} firestore={firestore} setUserData={setUserData} /> 
+      <Component appLang={appLang} user={user} auth={auth} {...pageProps} /> 
+      <Footer appLang={appLang} setAppLang={setAppLang} /> 
     </div>
   ); 
 }

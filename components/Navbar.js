@@ -18,16 +18,16 @@ export default function Navbar({ user, userData, auth, firestore, setUserData })
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg> 
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><Link href="/about">About</Link></li> 
-                        <li><Link href="/leaderboard">Leaderboard</Link></li> 
+                        <li><Link href="/about">Acerca de</Link></li> 
+                        <li><Link href="/leaderboard">Clasificación</Link></li> 
                     </ul>
                 </div>
                 {/* <a className="btn btn-ghost normal-case text-3xl">RewardMundo</a> */}
             </div>
             <div className="navbar-center">
                 <ul className="hidden lg:flex gap-4 menu menu-horizontal p-0">
-                    <li><Link href="/about">About</Link></li> 
-                    <li><Link href="/leaderboard">Leaderboard</Link></li> 
+                    <li><Link href="/about">Acerca de</Link></li> 
+                    <li><Link href="/leaderboard">Clasificación</Link></li> 
                 </ul>
                 <Link className="cursor-pointer text-3xl font-bold lg:hidden" href="/">RewardMundo</Link>
             </div>
@@ -71,14 +71,14 @@ const SignIn = ({ auth, firestore, setUserData }) => {
 
     return (
         <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="lg:mx-5 btn btn-sm lg:btn-md btn-primary hover:text-base-100">Sign in</label>
+            <label tabIndex={0} className="lg:mx-5 btn btn-sm lg:btn-md btn-primary hover:text-base-100">Iniciar sesión</label>
             <ul tabIndex={0} className="dropdown-content menu p-3 shadow bg-base-100 rounded-box w-64">
                 <input className="mb-3 input bg-gray-100 hover:bg-gray-200 focus:bg-gray-200 w-full max-w-xs" type="text" placeholder="Email" value={emailVal} onChange={e => setEmailVal(e.target.value)} />
-                <input className="mb-4 input bg-gray-100 hover:bg-gray-200 focus:bg-gray-200 w-full max-w-xs" type="password" placeholder="Password" value={passwordVal} onChange={e => setPasswordVal(e.target.value)} />
-                <button className="btn btn-primary w-full max-w-xs normal-case hover:text-base-100" onClick={handleSignInWithEmailAndPassword}>Sign in</button> 
-                <div className="divider">or</div>
-                <button className="mb-2 btn btn-ghost normal-case" onClick={signInWithGoogle}><img src="/google_icon.png" className="mr-2 w-5 h-5" /> Sign in with Google</button>
-                <p className="my-2 text-xs text-center text-gray-500">New to <span className="font-semibold">RewardMundo</span>? <label className="text-secondary hover:underline cursor-pointer" htmlFor="sign-up-modal">Sign up.</label></p>
+                <input className="mb-4 input bg-gray-100 hover:bg-gray-200 focus:bg-gray-200 w-full max-w-xs" type="password" placeholder="Contraseña" value={passwordVal} onChange={e => setPasswordVal(e.target.value)} />
+                <button className="btn btn-primary w-full max-w-xs normal-case hover:text-base-100" onClick={handleSignInWithEmailAndPassword}>Iniciar sesión</button> 
+                <div className="divider">o</div>
+                <button className="mb-2 btn btn-ghost normal-case" onClick={signInWithGoogle}><img src="/google_icon.png" className="mr-2 w-5 h-5" /> Iniciar sesión con Google</button>
+                <p className="my-2 text-xs text-center text-gray-500">¿Nuevo en <span className="font-semibold">RewardMundo</span>? <label className="text-secondary hover:underline cursor-pointer" htmlFor="sign-up-modal">Registrarte.</label></p>
             </ul>
         </div>
     ); 
@@ -108,9 +108,9 @@ const Profile = ({ user, auth, firestore, userData }) => {
                         </div>
                     </label>
                 </li>
-                <li><Link className="text-base-100 bg-primary hover:bg-secondary hover:drop-shadow-lg" href="/redeem">Redeem</Link></li>
-                <li><a>Settings</a></li>
-                <li onClick={() => auth.signOut()}><a className="bg-gray-200 hover:bg-gray-300">Sign out</a></li>
+                <li><Link className="text-base-100 bg-primary hover:bg-secondary hover:drop-shadow-lg" href="/redeem">Redimir</Link></li>
+                <li><a>Configuración</a></li>
+                <li onClick={() => auth.signOut()}><a className="bg-gray-200 hover:bg-gray-300">Cerrar sesión</a></li>
             </ul>
 
             <ProfileModal user={user} firestore={firestore} userData={userData} /> 

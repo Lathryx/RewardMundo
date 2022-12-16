@@ -9,8 +9,8 @@ export default function Redeem({ auth }) {
 const Rewards = () => {
     return (
         <div className="p-20">
-            <p className="mb-3 max-w-[300px] text-6xl font-bold">Redeem</p>
-            <p className="my-2 text-3xl font-bold">Gift Cards</p>
+            <p className="mb-3 max-w-[300px] text-6xl font-bold">Redimir</p>
+            <p className="my-2 text-3xl font-bold">Tarjetas de regalo</p>
             <div className="carousel carousel-center max-w-md p-10 gap-4 bg-gray-200 rounded-box">
                 <div className="carousel-item">
                     <div className="relative w-80 flex items-center justify-center bg-base-100 rounded-xl transition-all scale-100 hover:scale-105 hover:shadow-lg">
@@ -28,7 +28,7 @@ const Rewards = () => {
                 </div>
             </div>
 
-            <p className="my-2 text-3xl font-bold">Exclusive Deals</p>
+            <p className="my-2 text-3xl font-bold">Ofertas exclusivas</p>
             <div className="carousel carousel-center max-w-md p-10 gap-4 bg-gray-200 rounded-box">
                 <div className="carousel-item">
                     <div className="relative w-80 flex items-center justify-center bg-base-100 rounded-xl transition-all scale-100 hover:scale-105 hover:shadow-lg">

@@ -52,7 +52,7 @@ const Rewards = () => {
 const SignInOrSignUp = () => {
     return (
         <div className="mt-80 flex items-center justify-center">
-            <p className="text-3xl text-gray-500 font-semibold">You must <span className="text-secondary font-bold">sign in</span> or <span className="text-secondary font-bold">create a new account</span> to view reward opportunities.</p>
+            <p className="text-3xl text-gray-500 font-semibold">Debes <span className="text-secondary font-bold">iniciar sesión</span> o <span className="text-secondary font-bold">crear una cuenta nueva</span> para ver oportunidades de recompensa.</p>
         </div>
     ); 
 }; 
